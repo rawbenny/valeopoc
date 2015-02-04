@@ -1,0 +1,581 @@
+﻿
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker.css">
+    <link rel="stylesheet" type="text/css" href="css/Design.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.qrcode.js"></script>
+    <script type="text/javascript" src="js/qrcode.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="js/Design.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</head>
+<body>
+<div class="main">
+    <div class="header col-md-12">
+        <img src="img/logo.png" class="logo" alt="logo">
+        <div style="text-align: right; margin: 70px 10px auto auto;">Welcome Admin</div>
+    </div>
+    <div class="col-md-3">
+        <div class="list-group">
+            <a href="index" class="list-group-item active">Assets Maintenance</a>
+            <a href="user" class="list-group-item">User Management</a>
+            <a href="Dashboard" class="list-group-item">Report</a>
+        </div>
+    </div>
+    <div class="rightPanal col-md-9">
+        <div class="top-content">
+            <button id="btnAddFactory" type="button" class="btn btn-success btn-add-factory" data-toggle="modal" data-target="#createFactory">Add Factory</button>
+            <button id="btnAddWorkStation" type="button" class="btn btn-disable btn-add-workstation" data-toggle="modal" data-target="#">Add Work Station</button>
+            <button id="btnAddDevice" type="button" class="btn btn-disable btn-add-device" data-toggle="modal" data-target="#">Add Device</button>
+        </div>
+        <table class="table table-bordered table-striped panel panel-info">
+            <thead class="panel-heading">
+            <tr class="">
+                <td>Factory</td>
+                <td>Work Station</td>
+                <td>Device</td>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table >
+
+    </div>
+</div>
+
+<!-- create factory -->
+<div class="modal fade" id="createFactory" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title text-center" style="color:#5cb85c;" id="factoryDialogHeader">Create New Factory</h4>
+            </div>
+            <div class="modal-body">
+                <div  class="panel-body">
+                    <form id="addFactory" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">SerialNumber :</label>
+                            <div class="col-md-7"><input type="text" name="SerialNumber" class="form-control serial-number" /></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Name :</label>
+                            <div class="col-md-7"><input type="text" name="Name" class="form-control name" /></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Photo :</label>
+                            <div class="col-md-7"><input type="file" /></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Location :</label>
+                            <div class="col-md-7"><input type="text" name="Location" class="form-control" /></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Contact :</label>
+                            <div class="col-md-7"><input type="text" name="Contact" class="form-control" /></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">phone :</label>
+                            <div class="col-md-7"><input type="text" name="Phone" class="form-control" /></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="btnSaveFactory" type="button" class="btn btn-success btn-save">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- view factory -->
+<div class="modal fade" id="viewFactory" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title text-center" style="color:#5cb85c;" id="factoryDialogHeader">View Factory</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel-body">
+                    <form id="viewFactoryForm" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">SerialNumber :</label>
+                            <span class="col-md-7 form-control-static factory-serial-number view-mode" for="add-user-name"></span>
+                            <input type="text" name="SerialNumber" class="form-control factory-serial-number edit-mode pull-left" style="width:60%;"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Name :</label>
+                            <span class="col-md-7 form-control-static factory-name view-mode" for="add-user-name"></span>
+                            <input type="text" name="Name" class="form-control factory-name edit-mode pull-left" style="width:60%;"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Photo :</label>
+                            <span class="col-md-7"><img class="factory-image" alt="factory image"/></span>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Location :</label>
+                            <span class="col-md-7 form-control-static view-mode factory-location" for="add-user-name" >NY</span>
+                            <input type="text" name="Location" class="form-control factory-location edit-mode pull-left" style="width:60%;"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Contact :</label>
+                            <span class="col-md-7 form-control-static view-mode factory-contact" for="add-user-name" >FirstName LastName</span>
+                            <input type="text" name="Contact" class="form-control factory-contact edit-mode pull-left" style="width:60%;"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Phone :</label>
+                            <span class="col-md-7 form-control-static view-mode factory-phone" for="add-user-name" >555-555-5555</span>
+                            <input type="text" name="Phone" class="form-control factory-phone edit-mode pull-left" style="width:60%;"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success btn-edit">Edit</button>
+                <button type="button" class="btn btn-success btn-save">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- create work station -->
+<div class="modal fade" id="createWorkStation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title text-center" style="color:#5cb85c;" id="workStationDialogHeader">Create New Work Station</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel-body">
+                    <form id="addWorkstation" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Serial No :</label>
+                            <div class="col-md-7"><input type="text" name="SerialNumber" class="form-control" /></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">WorkStation Name :</label>
+                            <div class="col-md-7"><input type="text" name="Name" class="form-control" /></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Factory :</label>
+                            <div class="col-md-7" style="margin-top: 6px;font-size: 18px;"><span class="factory-name"></span><input type="text" name="Factory" class="form-control factory-name hide" /></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Photo :</label>
+                            <div class="col-md-7"><input type="file" /></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success btn-save">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- view work station -->
+<div class="modal fade" id="viewWorkStation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title text-center" style="color:#5cb85c;" id="workStationDialogHeader">View Work Station</h4>
+            </div>
+            <div class="modal-body">
+                <div class="panel-body">
+                    <form id="viewWorkStationForm" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Serial No :</label>
+                            <div class="col-md-7 form-control-static workstation-serial-number view-mode"></div>
+                            <input type="text" name="SerialNumber" class="form-control workstation-serial-number edit-mode pull-left" style="width:60%;"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">WorkStation Name :</label>
+                            <div class="col-md-7 form-control-static workstation-name view-mode"></div>
+                            <input type="text" name="Name" class="form-control workstation-name edit-mode pull-left" style="width:60%;"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">QRCode :</label>
+                            <div class="col-md-7 form-control-static"><div id="qrcode"></div></div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Factory :</label>
+                            <div class="col-md-7 form-control-static workstation-factory-name"></div>
+                            <input type="text" class="form-control workstation-factory-name edit-mode pull-left hide" style="width:60%;"/>
+                            <input type="text" name="Factory" class="form-control workstation-factory-id edit-mode pull-left hide" style="width:60%;"/>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Photo :</label>
+                            <div class="col-md-7 form-control-static"><img class="view-image workstation-image" alt="workstation image"/></div>
+                        </div>
+                        <!--
+                        <div class="form-group">
+                          <label class="col-md-4 control-label">Album ID :</label>
+                          <div class="col-md-7 form-control-static view-mode workstation-album-id">23486</div>
+                          <input type="text" class="form-control workstation-album-id edit-mode pull-left" style="width:60%;"/>
+                        </div>
+                        <hr>
+                        <div class="form-group">
+                          <label class="col-md-4 control-label">Create Date :</label>
+                          <div class="col-md-7 form-control-static view-mode workstation-create-date">2014-01-01</div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-4 control-label">Last Check Date :</label>
+                          <div class="col-md-7 form-control-static view-mode workstation-last-check-date">2014-01-01</div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-4 control-label">Check Status :</label>
+                          <div class="col-md-7 form-control-static"><input type="checkbox" /></div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-md-4 control-label">Syn Status :</label>
+                          <div class="col-md-7 form-control-static"><input type="checkbox" /></div>
+                        </div>
+
+                        -->
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success btn-edit">Edit</button>
+                <button type="button" class="btn btn-success btn-save">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- create device -->
+<div class="modal fade" id="createDevice" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title text-center" style="color:#5cb85c;" id="deviceDialogHeader">Create New Device</h4>
+            </div>
+            <div class="modal-body">
+                <form id="addDevice" class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Serial No :</label>
+                        <div class="col-md-7"><input type="text" name="SerialNumber" class="form-control" /></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Device Name :</label>
+                        <div class="col-md-7"><input type="text" name="Name" class="form-control" /></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Asset No :</label>
+                        <div class="col-md-7"><input type="text" name="AssetNumber" class="form-control" /></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Type :</label>
+                        <div class="col-md-7"><input type="text" name="Type" class="form-control" /></div>
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Category :</label>
+                        <div class="col-md-7"><input type="text" name="Category" class="form-control" /></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Standard :</label>
+                        <div class="col-md-7"><input type="text" name="Standard" class="form-control" /></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Nation :</label>
+                        <div class="col-md-7"><input type="text" name="Nation" class="form-control" /></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Custom :</label>
+                        <div class="col-md-7"><input type="text" name="Custom" class="form-control" /></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Manufactory :</label>
+                        <div class="col-md-7"><input type="text" name="Manufacturer" class="form-control" /></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">ExFactory Date :</label>
+                        <div class="col-md-7"><input type="text" name="ExFactoryDate" class="form-control" /></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">ExFactory No :</label>
+                        <div class="col-md-7"><input type="text" name="ExFactoryNumber" class="form-control" /></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Original Value :</label>
+                        <div class="col-md-7"><input type="text" name="OriginalValue" class="form-control" /></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Added Value :</label>
+                        <div class="col-md-7"><input type="text" name="AddedValue" class="form-control" /></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Department :</label>
+                        <div class="col-md-7"><input type="text" name="Department" class="form-control" /></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Factory Name :</label>
+                        <div class="col-md-7 form-control-static"><span class="device-factory-name"></span><input type="text" name="Factory" class="form-control device-factory-id hide" /></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">WorkStation Name :</label>
+                        <div class="col-md-7 form-control-static"><span class="device-workStation-name"></span><input type="text" name="Workstation" class="form-control device-workStation-id hide" /></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Move In :</label>
+                        <div class="col-md-7"><input type="text" name="MoveIn" class="form-control" /></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Move Out :</label>
+                        <div class="col-md-7"><input type="text" name="MoveOut" class="form-control" /></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Depreciation :</label>
+                        <div class="col-md-7"><input type="text" name="Depreciation" class="form-control" /></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Net Value :</label>
+                        <div class="col-md-7"><input type="text" name="NetValue" class="form-control" /></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Note :</label>
+                        <div class="col-md-7"><input type="text" name="Notes" class="form-control" /></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Photo :</label>
+                        <div class="col-md-7"><input type="file" /></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Last Check Date :</label>
+                        <div class="col-md-7 form-control-static">2014-01-01</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Check Status :</label>
+                        <div class="col-md-7 form-control-static"><input type="checkbox" name="CheckStatus" /></div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Syn Status :</label>
+                        <div class="col-md-7 form-control-static"><input type="checkbox" name="SyncStatus" /></div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success btn-save">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- view device -->
+<div class="modal fade" id="viewDevice" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title text-center" style="color:#5cb85c;" id="deviceDialogHeader">View Device</h4>
+            </div>
+            <div class="modal-body">
+                <ul id="deviceDialogTab" class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a id="deviceDetailTab" href="#deviceDetail" role="tab" data-toggle="tab" aria-controls="deviceDetail">Device Detail</a></li>
+                    <li role="presentation"><a id="auditHistoryTab" href="#auditHistory" role="tab" data-toggle="tab" aria-controls="auditHistory">Audit History</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane panelMaxHeight fade in active" id="deviceDetail" aria-labelledby="deviceDetailTab">
+                        <form class="form-horizontal" id="editDevice">
+                            <br/>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Serial No :</label>
+                                <div class="col-md-7 form-control-static device-serial-number view-mode"></div>
+                                <input type="text" name="SerialNumber" class="form-control device-serial-number edit-mode pull-left" style="width:60%;"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Device ID :</label>
+                                <div class="col-md-7 form-control-static device-id view-mode"></div>
+                                <input type="text" class="form-control device-id edit-mode pull-left" style="width:60%;"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Asset No :</label>
+                                <div class="col-md-7 form-control-static device-asset-number view-mode"></div>
+                                <input type="text" name="AssetNumber" class="form-control device-asset-number edit-mode pull-left" style="width:60%;"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Device Name :</label>
+                                <div class="col-md-7 form-control-static device-name view-mode"></div>
+                                <input type="text" name="Name" class="form-control device-name edit-mode pull-left" style="width:60%;"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Type :</label>
+                                <div class="col-md-7 form-control-static form-control-static device-type view-mode"></div>
+                                <input type="text" name="Type" class="form-control device-type edit-mode pull-left" style="width:60%;"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Category :</label>
+                                <div class="col-md-7 form-control-static device-category view-mode"></div>
+                                <input type="text" name="Category" class="form-control device-category edit-mode pull-left" style="width:60%;"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Standard :</label>
+                                <div class="col-md-7 form-control-statict device-standard view-mode"></div>
+                                <input type="text" name="Standard" class="form-control device-standard edit-mode pull-left" style="width:60%;"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Nation :</label>
+                                <div class="col-md-7 form-control-statict device-nation view-mode"></div>
+                                <input type="text" name="Nation" class="form-control device-nation edit-mode pull-left" style="width:60%;"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Custom :</label>
+                                <div class="col-md-7 form-control-statict device-custom view-mode"></div>
+                                <input type="text" name="Custom" class="form-control device-custom edit-mode pull-left" style="width:60%;"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Manufactory :</label>
+                                <div class="col-md-7 form-control-statict device-manufactory view-mode"></div>
+                                <input type="text" name="Manufacturer" class="form-control device-manufactory edit-mode pull-left" style="width:60%;"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">ExFactory Date :</label>
+                                <div class="col-md-7 form-control-static device-exFactory-date view-mode"></div>
+                                <input type="text" name="ExFactoryDate" class="form-control device-exFactory-date edit-mode pull-left" style="width:60%;"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">ExFactory No :</label>
+                                <div class="col-md-7 form-control-static device-exFactory-number view-mode"></div>
+                                <input type="text" name="ExFactoryNumber" class="form-control device-exFactory-number edit-mode pull-left" style="width:60%;"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Original Value :</label>
+                                <div class="col-md-7 form-control-statict device-original-value view-mode"></div>
+                                <input type="text" name="OriginalValue" class="form-control device-original-value edit-mode pull-left" style="width:60%;"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Added Value :</label>
+                                <div class="col-md-7 form-control-statict device-added-value view-mode"></div>
+                                <input type="text" name="AddedValue" class="form-control device-added-value edit-mode pull-left" style="width:60%;"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Department :</label>
+                                <div class="col-md-7 form-control-static device-department view-mode"></div>
+                                <input type="text" name="Department" class="form-control device-department edit-mode pull-left" style="width:60%;"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Factory Name :</label>
+                                <div class="col-md-7 form-control-static device-factory-name"></div>
+                                <input type="text" name="Factory" class="form-control device-factory-id hide" style="width:60%;"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">WorkStation Name :</label>
+                                <div class="col-md-7 form-control-static device-workStation-name"></div>
+                                <input type="text" name="Workstation" class="form-control device-workStation-id hide" style="width:60%;"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Move In :</label>
+                                <div class="col-md-7 form-control-statict device-move-in view-mode"></div>
+                                <input type="text" name="MoveIn" class="form-control device-move-in edit-mode pull-left" style="width:60%;"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Move Out :</label>
+                                <div class="col-md-7 form-control-static device-move-out view-mode"></div>
+                                <input type="text" name="MoveOut" class="form-control device-move-out edit-mode pull-left" style="width:60%;"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Depreciation :</label>
+                                <div class="col-md-7 form-control-static device-depreciation view-mode"></div>
+                                <input type="text" name="Depreciation" class="form-control device-depreciation edit-mode pull-left" style="width:60%;"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Net Value :</label>
+                                <div class="col-md-7 form-control-static device-net-value view-mode"></div>
+                                <input type="text" name="NetValue" class="form-control device-net-value edit-mode pull-left" style="width:60%;"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Note :</label>
+                                <div class="col-md-7 form-control-static device-note view-mode"></div>
+                                <input type="text" name="Notes" class="form-control device-note edit-mode pull-left" style="width:60%;"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Photo :</label>
+                                <div class="col-md-7 form-control-static"><img class="view-image device-image" alt="device image"/></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Last Check Date :</label>
+                                <div class="col-md-7 form-control-static device-last-check-date view-mode"></div>
+                                <input type="text" name="LastCheckDate" class="form-control device-last-check-date edit-mode pull-left" style="width:60%;"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Check Status :</label>
+                                <div class="col-md-7 form-control-static view-mode"><input type="checkbox" class="device-check-status" /></div>
+                                <div class="col-md-7 form-control-static edit-mode"><input type="checkbox" name="CheckStatus" class="device-check-status" /></div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">Syn Status :</label>
+                                <div class="col-md-7 form-control-static view-mode"><input type="checkbox" class="device-syn-status" /></div>
+                                <div class="col-md-7 form-control-static edit-mode"><input type="checkbox" name="SyncStatus" class="device-syn-status" /></div>
+                            </div>
+                        </form>
+                    </div>
+                    <div role="tabpanel" class="tab-pane panelMaxHeight fade" id="auditHistory" aria-labelledby="auditHistoryTab">
+                        <div class="deviceHistoryHolder">
+                            <h4>Audit Year : 2013</h4>
+                            <div class="deviceImgHolder">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                                <div class="imgContent">
+                                    <div class="imgInnerHolder">
+                                        <img src="img/add.png" />
+                                        <img src="img/edit.png" />
+                                        <img src="img/logo.png" />
+                                        <img src="img/add.png" />
+                                        <img src="img/edit.png" />
+                                        <img src="img/logo.png" />
+                                    </div>
+                                </div>
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-3">Device ID :</label>
+                                <div class="col-md-3">1234</div>
+                                <label class="col-md-3">Device Name :</label>
+                                <div class="col-md-3">Device No.1</div>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-3">Asset No :</label>
+                                <div class="col-md-3">AN00921</div>
+                                <label class="col-md-3">Net Value :</label>
+                                <div class="col-md-3">$ 1,000.00</div>
+                            </div>
+                            <div class="row">
+                                <label class="col-md-3">Note :</label>
+                                <div class="col-md-9">1234</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success btn-edit">Edit</button>
+                <button type="button" class="btn btn-success btn-save">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

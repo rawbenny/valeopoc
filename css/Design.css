@@ -1,0 +1,75 @@
+body {
+	margin: 0px; height: 100%; color: rgb(119, 136, 153); font-size: 15px;
+}
+#topHolder {
+	left: 0px; top: 0px; width: 100%; height: 100px; position: absolute; box-shadow: 0px 0px 5px #778899;
+}
+.logo {
+	left: 30px; top: 0px; width: 157px; height: 100px; position: absolute;
+}
+#leftHolder {
+	left: 5px; top: 105px; width: 415px; height: calc(100% - 105px); position: absolute;
+}
+#FactoryList {
+	margin-top: 5px;
+}
+#rightHolder {
+	left: 430px; top: 105px; width: calc(100% - 440px); height: calc(100% - 105px); position: absolute;
+}
+.detailRow {
+	width: calc(100% - 40px); height: 40px; margin-top: 10px; margin-left: 20px; float: left;
+}
+.detailLabel {
+	width: 30%; height: 40px; text-align: right; line-height: 40px; float: left;
+}
+.detailContent {
+	width: calc(60% - 10px); height: 40px; text-align: left; line-height: 40px; margin-left: 20px; float: left;
+}
+.detailContent > input {
+	line-height: 40px;
+}
+.footerMargin {
+	margin-top: 10px;
+}
+.panelMaxHeight {
+	-ms-overflow-x: hidden; -ms-overflow-y: auto; max-height: 420px;
+}
+.deviceHistoryHolder {
+	width: calc(100% - 20px); margin-left: 10px; border-bottom-color: rgb(221, 221, 221); border-bottom-width: 1px; border-bottom-style: solid; float: left; min-height: 100px;
+}
+.deviceImgHolder {
+	width: 100%; height: 80px; margin-bottom: 10px; position: relative;
+}
+.deviceImgHolder > .glyphicon-chevron-left {
+	left: 0px; top: 0px; width: 20px; height: 100%; line-height: 80px; position: absolute; cursor: pointer;
+}
+.deviceImgHolder > .glyphicon-chevron-right {
+	top: 0px; width: 20px; height: 100%; right: 0px; line-height: 80px; position: absolute; cursor: pointer;
+}
+.imgContent {
+	left: 20px; top: 0px; width: calc(100% - 40px); height: 100%; overflow: hidden; position: absolute;
+}
+.imgInnerHolder {
+	left: 0px; top: 0px; width: 5000px; height: 100%; padding-top: 2px; padding-bottom: 2px; position: absolute; -ms-overflow-x: hidden;
+}
+.imgInnerHolder > img {
+	border: 1px solid rgb(221, 221, 221); border-image: none; width: 80px; height: calc(100% - 4px); margin-right: 5px; float: left;
+}
+.infoHolder {
+	width: calc(100% - 10px); height: 100px; float: left;
+}
+.info-content {
+	text-align: center; border-bottom-color: rgb(119, 136, 153); border-bottom-width: 1px; border-bottom-style: solid;
+}
+.tableHolder {
+	width: 100%; margin-top: 10px; float: left;
+}
+.tableHolder table {
+	margin-top: 0px !important; cursor: default !important;
+}
+.tableHolder tbody tr {
+	text-align: center;
+}
+.reportFoot {
+	font-weight: bold;
+}
