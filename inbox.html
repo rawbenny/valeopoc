@@ -1,0 +1,157 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title></title>
+
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap-datepicker.css">
+		<link rel="stylesheet" type="text/css" href="css/Design.css">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/jquery.qrcode.js"></script>
+		<script type="text/javascript" src="js/qrcode.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/bootstrap-datepicker.js"></script>
+		<script type="text/javascript" src="js/Design.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+	</head>
+	<body>
+		<div class="main">
+			<div class="header col-md-12">
+				<img src="img/logo.png" class="logo" alt="logo">
+				<div style="text-align: right; margin: 70px 10px auto auto;">
+					Welcome Admin
+				</div>
+			</div>
+			<div class="col-md-3">
+				<div class="list-group">
+					<a href="index" class="list-group-item active">Assets Maintenance</a>
+					<a href="user" class="list-group-item">User Management</a>
+					<a href="Dashboard" class="list-group-item">Report</a>
+					<a href="inbox" class="list-group-item">Inbox <span class="badge">4</span></a>
+				</div>
+			</div>
+			<div class="rightPanal col-md-9">
+				<div class="btn-group">
+	                <button type="button" class="btn btn-default">
+	                    <div class="checkbox" style="margin: 0;">
+	                        <label>
+	                            <input type="checkbox">
+	                        </label>
+	                    </div>
+	                </button>
+	                <button type="button" class="btn btn-default dropdown-toggle" style="height:34px" data-toggle="dropdown">
+	                    <span class="caret"></span><span class="sr-only">Toggle Dropdown</span>
+	                </button>
+	                <ul class="dropdown-menu" role="menu">
+	                    <li><a href="#">All</a></li>
+	                    <li><a href="#">None</a></li>
+	                    <li><a href="#">Read</a></li>
+	                    <li><a href="#">Unread</a></li>
+	                    <li><a href="#">Starred</a></li>
+	                    <li><a href="#">Unstarred</a></li>
+	                </ul>
+	            </div>
+	            <button type="button" class="btn btn-default" data-toggle="tooltip" title="Refresh">
+	                   <span class="glyphicon glyphicon-refresh"></span>   </button>
+	            <!-- Single button -->
+	            <div class="btn-group">
+	                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+	                    More <span class="caret"></span>
+	                </button>
+	                <ul class="dropdown-menu" role="menu">
+	                    <li><a href="#">Mark all as read</a></li>
+	                    <li class="divider"></li>
+	                    <li class="text-center"><small class="text-muted">Select messages to see more actions</small></li>
+	                </ul>
+	            </div>
+	            <div class="pull-right">
+	                <span class="text-muted"><b>1</b>–<b>50</b> of <b>277</b></span>
+	                <div class="btn-group btn-group-sm">
+	                    <button type="button" class="btn btn-default">
+	                        <span class="glyphicon glyphicon-chevron-left"></span>
+	                    </button>
+	                    <button type="button" class="btn btn-default">
+	                        <span class="glyphicon glyphicon-chevron-right"></span>
+	                    </button>
+	                </div>
+	            </div>
+	            <hr/>
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs">
+					<li class="active">
+						<a href="#home" data-toggle="tab"><span class="glyphicon glyphicon-resize-small"> </span>Internal Transfer Request</a>
+					</li>
+					<li>
+						<a href="#profile" data-toggle="tab"><span class="glyphicon glyphicon-resize-full"></span> External Transfer Request</a>
+					</li>
+					<li>
+						<a href="#messages" data-toggle="tab"><span class="glyphicon glyphicon-envelope"></span> History</a>
+					</li>
+					<li>
+						<a href="#settings" data-toggle="tab"><span class="glyphicon glyphicon-plus no-margin"> </span></a>
+					</li>
+				</ul>
+				<!-- Tab panes -->
+				<div class="tab-content">
+					<div class="tab-pane fade in active" id="home">
+						<div class="list-group">
+							<a href="#" class="list-group-item">
+							<div class="checkbox pull-left" style="margin-top: 0;">
+								<label>
+									<input type="checkbox">
+								</label>
+							</div> <span class="glyphicon glyphicon-star-empty"></span><span class="name" style="min-width: 120px;
+							display: inline-block;">John Cheng</span> <span class="">Internal transfer from Washing Machine to Bonding Line</span> <span
+							class="badge">03:20 AM</span> <span class="pull-right"><span class="glyphicon glyphicon-paperclip"> </span></span>
+							</a>
+							<a href="#" class="list-group-item read">
+							<div class="checkbox pull-left" style="margin-top: 0;">
+								<label>
+									<input type="checkbox">
+								</label>
+							</div> <span class="glyphicon glyphicon-star"></span><span class="name" style="min-width: 120px;
+							display: inline-block;">Bhaumik Patel</span> <span class="">Internal transfer from Bonding Line to Washing  Machine</span>  <span
+							class="badge">09:18 AM</span> <span class="pull-right"><span class="glyphicon glyphicon-paperclip"> </span></span>
+							</a>
+							<a href="#" class="list-group-item read">
+							<div class="checkbox pull-left" style="margin-top: 0;">
+								<label>
+									<input type="checkbox">
+								</label>
+							</div> <span class="glyphicon glyphicon-star"></span><span class="name" style="min-width: 120px;
+							display: inline-block;">Ed Williams</span> <span class="">Internal transfer from Damper Line to Washing  Machine</span>  <span
+							class="badge">10:53 AM</span> <span class="pull-right"><span class="glyphicon glyphicon-paperclip"> </span></span>
+							</a>
+							<a href="#" class="list-group-item read">
+							<div class="checkbox pull-left" style="margin-top: 0;">
+								<label>
+									<input type="checkbox">
+								</label>
+							</div> <span class="glyphicon glyphicon-star"></span><span class="name" style="min-width: 120px;
+							display: inline-block;">Igor Krime</span> <span class="">Internal transfer from Bonding Line to Washing  Machine</span>  <span
+							class="badge">08:10 PM</span> <span class="pull-right"><span class="glyphicon glyphicon-paperclip"> </span></span>
+							</a>
+						</div>
+					</div>
+					<div class="tab-pane fade in" id="profile">
+						<div class="list-group">
+							<div class="list-group-item">
+								<span class="text-center">This tab is empty.</span>
+							</div>
+						</div>
+					</div>
+					<div class="tab-pane fade in" id="messages">
+						...
+					</div>
+					<div class="tab-pane fade in" id="settings">
+						This tab is empty.
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</body>
+</html>
